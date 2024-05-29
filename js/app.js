@@ -30,8 +30,25 @@ const totalEgresos = () => {
 const cargarHeader = () => {
   let presupuesto = totalIngresos() - totalEgresos();
   let porcentaje = totalEgresos() / totalIngresos();
-  document.getElementById("presupuesto").innerHTML = presupuesto;
-  document.getElementById("porcentaje").innerHTML = porcentaje;
-  document.getElementById("ingresos").innerHTML = totalIngresos();
-  document.getElementById("egresos").innerHTML = totalEgresos();
+  document.getElementById("presupuesto").innerHTML = formatoMoneda(presupuesto);
+  document.getElementById("porcentaje").innerHTML = formatoPorcentaje(porcentaje);
+  document.getElementById("ingresos").innerHTML = formatoMoneda(
+    totalIngresos()
+  );
+  document.getElementById("egresos").innerHTML = formatoMoneda(totalEgresos());
 };
+
+const formatoMoneda = (valor) => {
+  return valor.toLocaleString("es-AR", {
+    style: "currency",
+    currency: "ARS",
+    minimumFractionDigits: 2,
+  });
+};
+
+const formatoPorcentaje = (valor) => {
+  return valor.toLocaleString("es-AR", {
+    style: "percent",
+    minimumFractionDigits: 2,
+  });
+}
