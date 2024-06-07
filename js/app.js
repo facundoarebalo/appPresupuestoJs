@@ -121,7 +121,6 @@ const crearEgresoHTML = (egreso) => {
   </div>
 </div>`;
   return egresoHTML;
-
 };
 
 const eliminarEgreso = (id) => {
@@ -132,21 +131,19 @@ const eliminarEgreso = (id) => {
 };
 
 const agregarDato = () => {
-  let forma = document.forms['forma'];
-  let tipo = forma['tipo'];
-  let descripcion = forma['descripcion'];
-  let valor = forma['valor'];
-  if(descripcion.value !== '' && valor.value !== ''){
-    if(tipo.value === 'ingreso'){
-      ingresos.push(new Ingreso(descripcion.value, +valor.value))
-cargarHeader()
-cargarIngresos()
-    }
-    else if (tipo.value === 'egreso'){
-      egresos.push(new Egreso(descripcion.value, +valor.value))
-      cargarHeader()
-      cargarEgresos()
-
+  let forma = document.forms["forma"];
+  let tipo = forma["tipo"];
+  let descripcion = forma["descripcion"];
+  let valor = forma["valor"];
+  if (descripcion.value !== "" && valor.value !== "") {
+    if (tipo.value === "ingreso") {
+      ingresos.push(new Ingreso(descripcion.value, +valor.value));
+      cargarHeader();
+      cargarIngresos();
+    } else if (tipo.value === "egreso") {
+      egresos.push(new Egreso(descripcion.value, +valor.value));
+      cargarHeader();
+      cargarEgresos();
     }
   }
-}
+};
